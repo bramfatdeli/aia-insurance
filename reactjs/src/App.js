@@ -13,13 +13,6 @@ class App extends Component {
 
   componentDidMount(str = 'programmer') {
     var url = 'http://localhost:5000?q=' + str;
-    // if (!url) {
-    //   url = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=17d3405001351c2a599cd5875c1b5250&tags=' + str + '&per_page=300&page=1&format=json&nojsoncallback=1';
-    // }
-    var socket = io(url);
-    socket.on('connect_error', function (err) {
-      // notify user
-    });
     fetch(url)
       .then(function (response) {
         return response.json();
